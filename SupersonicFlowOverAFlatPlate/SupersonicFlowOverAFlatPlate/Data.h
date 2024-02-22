@@ -23,15 +23,13 @@ public:
 		}
 		file.close();
 	}
-	void save(std::vector<std::vector<std::vector<double>>>& data, std::string path, std::string filename) {
+	void save(std::vector<std::vector<double>>& data, std::string path, std::string filename) {
 		std::ofstream file("./data/" + path + "/" + filename + ".txt");
 		for (int i = 0; i < data.size(); i++) {
 			for (int j = 0; j < data[i].size(); j++) {
-				for (int k = 0; k < data[i][j].size(); k++) {
-					file << data[i][j][k];
-					if (j < data[i].size() - 1 || k < data[i][j].size() - 1) {
-						file << " ";
-					}
+				file << data[i][j];
+				if (j < data[i].size() - 1) {
+					file << " ";
 				}
 			}
 			if (i < data.size() - 1) {
@@ -44,11 +42,11 @@ public:
 		save(x, path, "x");
 		save(y, path, "y");
 		save(t, path, "time");
-		save(rho, path, "rho");
-		save(u, path, "u");
-		save(v, path, "v");
-		save(T, path, "T");
-		save(p, path, "p");
-		save(Ma, path, "Ma");
+		save(rho[rho.size() - 1], path, "rho");
+		save(u[u.size() - 1], path, "u");
+		save(v[v.size() - 1], path, "v");
+		save(T[T.size() - 1], path, "T");
+		save(p[p.size() - 1], path, "p");
+		save(Ma[Ma.size() - 1], path, "Ma");
 	}
 };
