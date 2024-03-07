@@ -18,7 +18,7 @@ def read_1d(path, filename):
     data = np.array(data)
     return data
 
-def read_2d(path, filename, len_x, len_y):
+def read_2d(path, filename):
     data = []
     with open("./data/" + path + "/" + filename + ".txt", "r") as file:
         while True:
@@ -37,12 +37,12 @@ def read(path):
     x = read_1d(path, "x")
     y = read_1d(path, "y")
     t = read_1d(path, "time")
-    rho = read_2d(path, "rho", len(x), len(y))
-    u = read_2d(path, "u", len(x), len(y))
-    v = read_2d(path, "v", len(x), len(y))
-    T = read_2d(path, "T", len(x), len(y))
-    p = read_2d(path, "p", len(x), len(y))
-    Ma = read_2d(path, "Ma", len(x), len(y))
+    rho = read_2d(path, "rho")
+    u = read_2d(path, "u")
+    v = read_2d(path, "v")
+    T = read_2d(path, "T")
+    p = read_2d(path, "p")
+    Ma = read_2d(path, "Ma")
     return x, y, t, rho, u, v, T, p, Ma
 
 def plot(X, Y, data, title):
